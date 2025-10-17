@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Альпклуб — учёт восхождений</title>
+    <meta name="description" content="SPA для учёта восхождений в альпклубе" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <noscript>
+      Для работы приложения необходим JavaScript. Пожалуйста, включите его в
+      настройках браузера.
+    </noscript>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#/mountains" class="brand">
+          <span class="brand-logo" aria-hidden="true">🧗</span>
+          <span class="brand-text">Альпклуб</span>
+        </a>
+
+        <nav class="nav">
+          <a class="nav-link" href="#/mountains" data-link>Горы</a>
+          <a class="nav-link" href="#/groups" data-link>Группы</a>
+          <a class="nav-link" href="#/climbers" data-link>Альпинисты</a>
+          <a class="nav-link" href="#/stats" data-link>Статистика</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app-root" class="container app-root" role="main">
+      <!-- Контент SPA будет подменяться роутером -->
+      <div class="view-skeleton">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line short"></div>
+      </div>
+    </main>
+
+    <div id="modal-root" class="modal-root" aria-live="polite" aria-atomic="true"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Альпклуб</span>
+        <span class="muted">Учёт восхождений</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      // Установка года в футере как простой прогрессивный enhancement
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
