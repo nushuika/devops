@@ -1,3 +1,8 @@
+
+
+
+
+
 // backend/server.js  (CommonJS)
 const express = require("express");
 const cors = require("cors");
@@ -13,6 +18,7 @@ const genId = () => nextId++;
 const app = express();
 app.use(cors());            // отвечает на CORS + OPTIONS
 app.use(express.json());
+app.get('/', (req, res) => res.send('Backend OK'));
 
 // Лог всех запросов — в консоль видно, какой МЕТОД и ПУТЬ реально прилетает
 app.use((req, _res, next) => {
@@ -258,3 +264,7 @@ app.get("/stats/unique-climbers-per-mountain", (_req, res) => {
 // ---------------------- START ----------------------
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Backend API: http://127.0.0.1:${PORT}`));
+// Проверка работоспособности сервера
+app.get('/api/ping', (req, res) => {
+  res.json({ status: 'ok' });
+});
